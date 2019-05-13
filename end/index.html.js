@@ -32,20 +32,18 @@ const app = new Vue({
 const connect = () => {
     const connection = new signalR.HubConnectionBuilder().withUrl(`${getAPIBaseUrl()}/api`).build();
 
-    connection.serverTimeoutInMilliseconds = (1000 * 60) * 5; // 5 minutes
-
     connection.onclose(()  => {
         console.log('SignalR connection disconnected');
         setTimeout(() => connect(), 2000);
     });
 
-    connection.start().then(() => {
-        console.log("SignalR connection established");
-    });
-
     connection.on('updated', updatedStock => {
         const index = app.stocks.findIndex(s => s.id === updatedStock.id);
         app.stocks.splice(index, 1, updatedStock);
+    });
+
+    connection.start().then(() => {
+        console.log("SignalR connection established");
     });
 };
 
