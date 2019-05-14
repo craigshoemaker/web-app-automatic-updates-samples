@@ -14,13 +14,14 @@ const getPriceChange = () => {
   const max = 999;
   const change = min + (Math.random() * (max - min));
   const value = Math.round(change);
-  return value / 100;
+  return parseFloat((value / 100).toFixed(2));
 }
 
 const getStockChangeValues = (existingStock) => {
   const isChangePositive = !(existingStock.changeDirection === '+');
   const change = getPriceChange();
-  const price = isChangePositive ? existingStock.price + change : existingStock.price - change;
+  let price = isChangePositive ? existingStock.price + change : existingStock.price - change;
+  price = parseFloat(price.toFixed(2));
   return {
     "price": price,
     "change": change,
