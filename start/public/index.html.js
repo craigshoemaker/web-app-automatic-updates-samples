@@ -1,10 +1,4 @@
 const LOCAL_BASE_URL = 'http://localhost:7071';
-const REMOTE_BASE_URL = '<FUNCTION_APP_ENDPOINT>';
-
-const getAPIBaseUrl = () => {
-    const isLocal = /localhost/.test(window.location.href);
-    return isLocal ? LOCAL_BASE_URL : REMOTE_BASE_URL;
-}
 
 const app = new Vue({
     el: '#app',
@@ -17,7 +11,7 @@ const app = new Vue({
     methods: {
         async update() {
             try {
-                const apiUrl = `${getAPIBaseUrl()}/api/getStocks`;
+                const apiUrl = `${LOCAL_BASE_URL}/api/getStocks`;
                 const response = await axios.get(apiUrl);
                 app.stocks = response.data;
             } catch (ex) {
