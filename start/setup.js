@@ -28,7 +28,7 @@ const setupAndSeedDatabase = async ()  => {
   });
 
   await container.items.create({
-    "id": "ebe2e863-bf84-439a-89f8-39975e7d6766",
+    "id": "80bc1751-3831-4749-99ea-5c6a63105ae7",
     "symbol": "GHI",
     "price": "156.21",
     "change": "6.81",
