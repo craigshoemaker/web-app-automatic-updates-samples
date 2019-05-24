@@ -1,22 +1,22 @@
 {
   "name": "microsoft-learn-func-signalr-end",
-  "description": "Microsoft Learn Sample Application",
+  "description": "Enable automatic updates in a web application using Azure Functions and SignalR: Microsoft Learn Sample Application",
   "version": "1.0.0",
   "main": "setup.js",
   "scripts": {
-    "start": "http-server -o http://localhost:8080",
+    "start": "lite-server --baseDir=\"public\"",
     "postinstall": "npm run setup",
     "setup": "node setup.js",
     "update": "node update.js"
   },
   "license": "MIT",
   "repository": {
-    "url": "http://github.com/TODO/todo.git"
+    "url": "https://github.com/MicrosoftDocs/mslearn-advocates.azure-functions-and-signalr.git"
   },
   "dependencies": {
     "@azure/cosmos": "^2.1.5"
   },
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "lite-server": "^2.5.3"
   }
 }
