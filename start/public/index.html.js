@@ -13,6 +13,7 @@ const app = new Vue({
             try {
                 const apiUrl = `${LOCAL_BASE_URL}/api/getStocks`;
                 const response = await axios.get(apiUrl);
+                console.log('Stocks fetched from ', apiUrl);
                 app.stocks = response.data;
             } catch (ex) {
                 console.error(ex);
